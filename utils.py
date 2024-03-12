@@ -118,7 +118,7 @@ def get_feature_definitions(df, feature_group):
     feature_definitions = []
     for column in df.columns:
         feature_type = feature_group._DTYPE_TO_FEATURE_DEFINITION_CLS_MAP.get(
-            str(df[column].dtype), None
+            str(df[column].dtype).lower(), None
         )
         if not feature_type:
             feature_type = FeatureTypeEnum.STRING
